@@ -1,0 +1,44 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 1080,
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "settings": {
+                "udp": true
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "远程ip",
+                        "port": "远程端口",
+                        "users": [
+                            {
+                                "id": "b831381d-6324-4d53-ad4f-8cda48b30811"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "kcp",
+                "kcpSettings": {
+                    "uplinkCapacity": 5,
+                    "downlinkCapacity": 100,
+                    "congestion": true,
+                    "header": {
+                        "type": "none"
+                    }
+                }
+            }
+        }
+    ]
+}
